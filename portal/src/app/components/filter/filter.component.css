@@ -1,0 +1,8 @@
+.button-filter {
+  background-color: rgba(158, 79, 231, 0.61);
+  color: aliceblue;
+}
+.button-filter-reset {
+  background-color: rgba(80, 31, 216, 0.562);
+  color: rgb(250, 250, 250);
+}

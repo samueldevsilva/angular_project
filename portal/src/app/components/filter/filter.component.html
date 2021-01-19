@@ -1,0 +1,26 @@
+<form>
+  <h4>Selecione o filtro</h4>
+  <mat-form-field class="filter">
+    <mat-label>Estado</mat-label>
+    <mat-select [(ngModel)]="selectedState" name="state" (selectionChange)="onStateChange($event)">
+      <mat-option *ngFor="let state of states" [value]="state.value">
+        {{state.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-form-field *ngIf="selectedState && years.length">
+    <mat-label>Ano</mat-label>
+    <mat-select [(ngModel)]="selectedYear" name="year" (selectionChange)="onYearAndStateSelected($event)">
+      <mat-option *ngFor="let year of years" [value]="year.value">
+        {{year.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-button class="button-filter" [disabled]="!ano" (click)="filter()">Filtrar</button>
+  <button mat-button class="button-filter-reset" *ngIf="estado && ano" (click)="reset()">Resetar</button>
+
+  <app-table [estado]="estado" [ano]="ano" [dadosFiltrados]="dadosFiltrados"></app-table>
+</form>
