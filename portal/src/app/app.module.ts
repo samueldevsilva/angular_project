@@ -11,7 +11,7 @@ import { FilterComponent } from './components/filter/filter.component';
 import { TableComponent } from './components/table/table.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LineComponent } from './components/line/line.component';
-import { HighchartsChartComponent } from 'highcharts-angular';
+import { ChartModule } from 'angular-highcharts';
 
 @NgModule({
   declarations: [
@@ -19,8 +19,7 @@ import { HighchartsChartComponent } from 'highcharts-angular';
     PortalComponent,
     FilterComponent,
     TableComponent,
-    LineComponent,
-    HighchartsChartComponent
+    LineComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +32,8 @@ import { HighchartsChartComponent } from 'highcharts-angular';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    ChartModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

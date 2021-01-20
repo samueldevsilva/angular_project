@@ -9,7 +9,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 # Informações Gerais
 
-*** Peço desculpas pelo atraso na entrega, eu passei por problemas de saúde, um pouco graves de certa forma, relacionados aos rins. Tudo que desenvolvi foi em pouquissimo tempo, na data de ontem, precisaria de mais tempo para finalizar o que falta e corrigir algumas inconsistencias, pois tentei fazer em 1 dia o que eu teria o fim de semana para fazer, isso me prejudicou um pouco, acabei não conseguindo finalizar, mas para avaliação espero que de tudo certo. Desde ja agradeço pela oportunidade e peço desculpas mais uma vez pelo ocorrido, eu não fazia ideia de que teria tal imprevisto. ***
+*** Peço desculpas pelo atraso na entrega, eu passei por problemas de saúde, um pouco graves de certa forma, relacionados aos rins. Tudo que desenvolvi foi o que realmente consegui fazer. Como Feedback, não sei se ajuda, porém eu nunca havia utilizado com angular **https://www.highcharts.com** o que me fez ter dificuldades com os gráficos, eu realmente precisaria estudar um pouco mais essa parte de customização. Agradeço pela oportunidade, de coração. ***
 
 # Para rodar o projeto, basca clonar o repositório *** https://github.com/samueldevsilva/angular_project.git ***
 

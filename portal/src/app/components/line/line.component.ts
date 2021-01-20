@@ -1,7 +1,10 @@
 import { Input } from '@angular/core';
 import { SimpleChanges } from '@angular/core';
 import { Component, OnChanges } from '@angular/core';
-import * as Highcharts from 'highcharts';
+import { Chart } from 'angular-highcharts'
+import { Options } from 'highcharts';
+import { barChartOptions } from '../../helpers/barChartOptions'
+import { pieChartOptions } from '../../helpers/pieChartOptions'
 
 export interface PeriodicElement {
   trimestre: string;
@@ -21,6 +24,9 @@ export class LineComponent implements OnChanges {
   @Input() selectedYear: string;
   @Input() selectedState: string;
 
+  data = [];
+  categorias = [];
+
   constructor() { }
 
   ngOnInit() {
@@ -33,39 +39,56 @@ export class LineComponent implements OnChanges {
       console.log(changes);
       changes.dadosGr.currentValue.map(item => {
         auxData.push({
-          name: item.trimestre,
-          data: [item.lucro]
+          data: [{ y: item.meta }]
         })
         auxCat.push(item.trimestre)
       })
     }
-    this.data = auxData;
-    this.chartOptions.xAxis.categories = auxCat;
-    console.log(this.data);
-    console.log(this.chartOptions.xAxis.categories);
+    this.data = auxData[0].data
+    this.categorias = auxCat;
 
   }
 
-  title = 'Evolução dos Lucros';
 
-  data = [];
-
-  highcharts = Highcharts;
-  chartOptions = {
-    chart: {
-      type: "spline"
-    },
-    title: {
-      text: "Evolução dos Lucros"
-    },
-    xAxis: {
-      categories: []
-    },
-    yAxis: {
+  barChartData(dados: any, categ: any): Options {
+    return {
+      chart: {
+        type: 'bar',
+      },
+      credits: {
+        enabled: true,
+      },
       title: {
-        text: "Lucro"
-      }
-    },
-    series: this.data
-  };
+        text: 'Resultado da meta',
+      },
+      yAxis: {
+        visible: true,
+        gridLineColor: '#eee',
+      },
+      legend: {
+        enabled: false,
+      },
+      xAxis: {
+        lineColor: '#fff',
+        categories: categ,
+      },
+
+      plotOptions: {
+        series: {
+          borderRadius: 5,
+        } as any,
+      },
+
+      series: [
+        {
+          type: 'bar',
+          color: '#506ef9',
+          data: dados,
+        },
+      ],
+    };
+  }
+  barChart = new Chart(barChartOptions);
+
+  pieChart = new Chart(pieChartOptions);
 }
